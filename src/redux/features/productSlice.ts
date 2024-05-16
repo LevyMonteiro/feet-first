@@ -1,7 +1,7 @@
-import { IProduct } from '@/app/admin/dashboard/page';
+import { TProduct } from '@/app/admin/dashboard/page';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-const initialState: IProduct = {
+const initialState: TProduct = {
   _id: '',
   imgSrc: '',
   fileKey: '',
@@ -14,7 +14,7 @@ export const productSlice = createSlice({
   name: 'productSlice',
   initialState,
   reducers: {
-    setProduct: (state, action: PayloadAction<IProduct>) => {
+    setProduct: (state, action: PayloadAction<TProduct>) => {
       return action.payload;
     },
   },

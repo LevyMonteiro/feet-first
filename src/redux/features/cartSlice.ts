@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-type IProduct = {
+type TProduct = {
   id: string;
   title: string;
   img: string;
@@ -8,13 +8,13 @@ type IProduct = {
   quantity: number;
 };
 
-const initialState: Array<IProduct> = [];
+const initialState: Array<TProduct> = [];
 
 export const cartSlice = createSlice({
   name: 'cartSlice',
   initialState,
   reducers: {
-    addToCart: (state, action: PayloadAction<IProduct>) => {
+    addToCart: (state, action: PayloadAction<TProduct>) => {
       if (state.findIndex((pro) => pro.id === action.payload.id) === -1) {
         state.push(action.payload);
       } else {

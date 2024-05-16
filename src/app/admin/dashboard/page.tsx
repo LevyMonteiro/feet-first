@@ -7,7 +7,7 @@ import { useAppDispatch } from '@/redux/hooks';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 
-export type IProduct = {
+export type TProduct = {
   _id: string;
   imgSrc: string;
   fileKey: string;
@@ -31,7 +31,7 @@ const Dashboard = () => {
       .then((res) => setProducts(res.data))
       .catch((err) => console.log(err))
       .finally(() => dispatch(setLoading(false)));
-  }, [updadeTable]);
+  }, [dispatch, updadeTable]);
 
   return (
     <div>
@@ -51,7 +51,7 @@ const Dashboard = () => {
             </thead>
 
             <tbody>
-              {products.map((product: IProduct, index) => (
+              {products.map((product: TProduct, index) => (
                 <ProductRow
                   key={product._id}
                   srNo={index + 1}
