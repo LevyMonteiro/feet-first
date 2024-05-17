@@ -10,9 +10,15 @@ const shrikhand = Shrikhand({
 const Logo = () => {
   return (
     <div className='flex justify-center items-center '>
-      <Image src='/sneaker-logo.png' width={50} height={50} alt='logo' />{' '}
+      <Image
+        className='transform -rotate-[25deg]'
+        src='/sneaker-logo.png'
+        width={50}
+        height={50}
+        alt='logo'
+      />
       <h1
-        className={`${shrikhand.className} text-xl text-pink text-shadow text-shadow-accent`}
+        className={`${shrikhand.className} text-xl text-pink text-shadow text-shadow-accent mt-[6px]`}
       >
         Feet First
       </h1>
