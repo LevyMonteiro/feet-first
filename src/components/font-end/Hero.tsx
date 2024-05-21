@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { Oregano } from 'next/font/google';
 import React from 'react';
 

@@ -3,6 +3,7 @@ import Cart from '@/components/font-end/Cart';
 import Feature from '@/components/font-end/Feature';
 import Hero from '@/components/font-end/Hero';
 import Navbar from '@/components/font-end/Navbar';
+import TrendingProducts from '@/components/font-end/TrendingProducts';
 import { useState } from 'react';
 
 export default function Home() {
@@ -14,6 +15,7 @@ export default function Home() {
       {showCart && <Cart setShowCart={setShowCart} />}
       <Hero />
       <Feature />
+      <TrendingProducts />
     </main>
   );
 }
