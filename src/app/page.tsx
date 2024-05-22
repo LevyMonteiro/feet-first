@@ -1,4 +1,5 @@
 'use client';
+import Banner from '@/components/font-end/Banner';
 import Cart from '@/components/font-end/Cart';
 import Feature from '@/components/font-end/Feature';
 import Hero from '@/components/font-end/Hero';
@@ -16,6 +17,7 @@ export default function Home() {
       <Hero />
       <Feature />
       <TrendingProducts />
+      <Banner />
     </main>
   );
 }
