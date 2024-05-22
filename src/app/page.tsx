@@ -2,6 +2,7 @@
 import Banner from '@/components/font-end/Banner';
 import Cart from '@/components/font-end/Cart';
 import Feature from '@/components/font-end/Feature';
+import Footer from '@/components/font-end/Footer';
 import Hero from '@/components/font-end/Hero';
 import Navbar from '@/components/font-end/Navbar';
 import TrendingProducts from '@/components/font-end/TrendingProducts';
@@ -18,6 +19,7 @@ export default function Home() {
       <Feature />
       <TrendingProducts />
       <Banner />
+      <Footer />
     </main>
   );
 }
