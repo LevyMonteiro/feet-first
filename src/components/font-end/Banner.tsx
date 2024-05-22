@@ -7,7 +7,7 @@ const Banner = () => {
         <p className='text-topHeadingSecondary text-xl font-medium'>
           Sale 20% off all store
         </p>
-        <h2 className='text-topHeadingPrimary font-bold text-xl sm:text-3xl max-w-[240px]'>
+        <h2 className='text-accent text-shadow text-shadow-gray-600 font-bold text-xl sm:text-3xl max-w-[320px]'>
           Most desired sneakers in the world
         </h2>
 
