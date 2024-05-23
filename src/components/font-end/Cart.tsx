@@ -51,7 +51,7 @@ const Cart = ({ setShowCart }: PropsType) => {
         </button>
 
         <button className='bg-pink text-white text-center w-full rounded-3xl py-2 hover:bg-accent mb-4 mt-4'>
-          ChecOut
+          CheckOut
         </button>
       </div>
     </div>

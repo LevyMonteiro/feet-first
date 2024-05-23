@@ -1,8 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
-import { removeFromCart } from '@/redux/features/cartSlice';
+import {
+  decrementProductCount,
+  incrementProductCount,
+  removeFromCart,
+} from '@/redux/features/cartSlice';
 import { useAppDispatch } from '@/redux/hooks';
 import React from 'react';
-import { RxCross1 } from 'react-icons/rx';
+import { RxCross1, RxMinus, RxPlus } from 'react-icons/rx';
 
 type PropsType = {
   id: string;
@@ -20,6 +24,7 @@ const CartProduct: React.FC<PropsType> = ({
   quantity,
 }) => {
   const dispatch = useAppDispatch();
+  const payLoad = { id, img, title, price, quantity };
 
   return (
     <div className='flex justify-between items-center'>
@@ -33,10 +38,25 @@ const CartProduct: React.FC<PropsType> = ({
         </div>
       </div>
 
-      <RxCross1
-        className='cursor-pointer'
-        onClick={() => dispatch(removeFromCart(id))}
-      />
+      <div className='flex justify-between gap-4'>
+        <RxMinus
+          className='cursor-pointer'
+          onClick={() =>
+            payLoad.quantity > 1
+              ? dispatch(decrementProductCount(payLoad))
+              : dispatch(removeFromCart(id))
+          }
+        />
+        <RxPlus
+          className='cursor-pointer'
+          onClick={() => dispatch(incrementProductCount(payLoad))}
+        />
+
+        <RxCross1
+          className='cursor-pointer'
+          onClick={() => dispatch(removeFromCart(id))}
+        />
+      </div>
     </div>
   );
 };
