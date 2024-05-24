@@ -39,7 +39,7 @@ const ProductCard = ({ id, img, category, title, price }: PropsType) => {
         <img className='inline-block' src={img} alt={title} />
       </div>
 
-      <div className='px-8 py-4'>
+      <div className='px-8 py-4 h-[190px] flex flex-col justify-between'>
         <p className='text-gray-500 text-[14px] font-medium'>{category}</p>
         <h2 className='font-medium'>{title}</h2>
 
