@@ -1,5 +1,5 @@
 import { useAppLector } from '@/redux/hooks';
-import React, { Dispatch, SetStateAction } from 'react';
+import React, { Dispatch, SetStateAction, useEffect, useRef } from 'react';
 import { RxCross1 } from 'react-icons/rx';
 import CartProduct from './CartProduct';
 
@@ -9,6 +9,7 @@ type PropsType = {
 
 const Cart = ({ setShowCart }: PropsType) => {
   const products = useAppLector((state) => state.cartReducer);
+  const cartRef = useRef<HTMLDivElement | null>(null);
 
   const getTotal = () => {
     let total = 0;
@@ -16,18 +17,33 @@ const Cart = ({ setShowCart }: PropsType) => {
     return total;
   };
 
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (!cartRef.current?.contains(event.target as Node)) {
+        setShowCart(false);
+      }
+    }
+
+    document.addEventListener('mousedown', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [setShowCart]);
+
   return (
-    <div className='bg-[#0000007d] w-full min-h-screen fixed left-0 top-0 z-20 overflow-y-scroll'>
-      <div className='max-w-[400px] w-full min-h-full bg-white absolute right-0 top-0 p-6'>
+    <div className='bg-[#0000007d] w-full max-w-[100vw] min-h-screen fixed left-0 top-0 z-20 overflow-y-scroll transition ease-in-out duration-500'>
+      <div
+        className='max-w-[400px] w-full min-h-full bg-white absolute right-0 top-0 p-6'
+        ref={cartRef}
+      >
         <RxCross1
           className='absolute right-0 top-0 m-6 text-[24px] cursor-pointer'
           onClick={() => setShowCart(false)}
         />
-
         <h3 className='pt-6 text-lg font-medium text-gray-600 uppercase'>
           Your Cart
         </h3>
-
         <div className='mt-6 space-y-2'>
           {products?.map((item: any) => (
             <CartProduct
@@ -40,16 +56,13 @@ const Cart = ({ setShowCart }: PropsType) => {
             />
           ))}
         </div>
-
         <div className='flex justify-between items-center font-medium text-xl py-4'>
           <p>Total:</p>
           <p>${getTotal()}.00</p>
         </div>
-
         <button className='bg-pink text-white text-center w-full rounded-3xl py-2 hover:bg-accent mb-4 mt-4'>
           View Cart
         </button>
-
         <button className='bg-pink text-white text-center w-full rounded-3xl py-2 hover:bg-accent mb-4 mt-4'>
           CheckOut
         </button>
