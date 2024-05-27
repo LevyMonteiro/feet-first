@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Feet First
+
+## About
+Welcome to our modern ecommerce site! It's built with Next.js and TypeScript, styled using Tailwind CSS, and spiced up with Framer Motion for some cool animations.
+
+We've got an admin route with a CMS to make content management super easy. The backend API is connected to MongoDB, keeping our data handling smooth and efficient. We're using Redux for state management, and NextAuth for authentication.
 
 ## Getting Started
+To view the website, simply visit the live URL <a href="https://feet-first-levymonteiro.vercel.app/" target="_blank">here</a>.
 
-First, run the development server:
+If you'd like to run the website locally on your machine, you can do so by following these steps:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+Clone the repository to your local machine.
+
+```
+  git clone git@github.LevyMonteiro/feet-first.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Change to directory.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+  cd feet-first
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Install the dependecies.
 
-## Learn More
+```
+  npm install
+```
 
-To learn more about Next.js, take a look at the following resources:
+Run locally.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+  npm run dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Techs
+This website was built using the following technologies:
 
-## Deploy on Vercel
+<ul>
+<li><a href="https://typescriptlang.org/" target="_blank">Typescript</a></li>
+<li><a href="https://react.dev/" target="_blank">React</a></li>
+<li><a href="https://tailwindcss.com/" target="_blank">Tailwind</a></li>
+<li><a href="https://nextjs.org/docs/" target="_blank">Next.js</a></li>
+<li><a href="https://next-auth.js.org/getting-started/introduction" target="_blank">NextAuth.js</a></li>
+<li><a href="https://redux.js.org/introduction/getting-started" target="_blank">Redux</a></li>
+<li><a href="https://www.mongodb.com/" target="_blank">MongoDB</a></li>
+<li><a href="https://docs.uploadthing.com/" target="_blank">Uploadthing</a></li>
+<li><a href="https://www.framer.com/motion/" target="_blank">Framer Motion</a></li>
+<li><a href="https://react-icons.github.io/react-icons/" target="_blank">react-icons</a></li>
+</ul>
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Author
+<ul>
+<li>Levy Monteiro - <a href="https://github.com/LevyMonteiro" target="_blank">GitHub</a></li>
+</ul>
