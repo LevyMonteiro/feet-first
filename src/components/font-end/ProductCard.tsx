@@ -3,6 +3,7 @@ import { addToCart } from '@/redux/features/cartSlice';
 import { useAppDispatch } from '@/redux/hooks';
 import { makeToast } from '@/utils/helper';
 import React from 'react';
+import { motion } from 'framer-motion';
 import {
   AiFillStar,
   AiOutlineShoppingCart,
@@ -15,9 +16,18 @@ type PropsType = {
   category: string;
   title: string;
   price: number;
+  index: number;
 };
 
-const ProductCard = ({ id, img, category, title, price }: PropsType) => {
+const productSlide = {
+  initial: { x: '100%' },
+  enter: (i: number) => ({
+    x: '0%',
+    transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1], delay: 0.05 * i },
+  }),
+};
+
+const ProductCard = ({ id, img, category, title, price, index }: PropsType) => {
   const dispatch = useAppDispatch();
 
   const addProductToCart = () => {
@@ -34,7 +44,14 @@ const ProductCard = ({ id, img, category, title, price }: PropsType) => {
   };
 
   return (
-    <div className='border border-gray-200'>
+    <motion.div
+      custom={index}
+      variants={productSlide}
+      animate='enter'
+      initial='initial'
+      transition={{ duration: 1, ease: 'easeInOut' }}
+      className='border border-gray-200'
+    >
       <div className='text-center border-b border-gray-200'>
         <img className='inline-block' src={img} alt={title} />
       </div>
@@ -62,7 +79,7 @@ const ProductCard = ({ id, img, category, title, price }: PropsType) => {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

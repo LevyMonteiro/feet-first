@@ -12,7 +12,7 @@ const Navbar = ({ setShowCart }: PropsType) => {
   const cartCount = useAppLector((state) => state.cartReducer.length);
 
   return (
-    <div className='pt-4 bg-white top-0 sticky'>
+    <div className='pt-4 bg-white top-0 sticky z-10'>
       <div className='container'>
         <div className='flex justify-between items-center'>
           {/* <div className='text-4xl font-bold'>Logo</div> */}

@@ -1,4 +1,4 @@
-'use client';
+// 'use client';
 
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
@@ -39,7 +39,7 @@ const TrendingProducts = () => {
       </div>
 
       <div className='grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-8'>
-        {products.map((item: TProduct) => (
+        {products.map((item: TProduct, index) => (
           <ProductCard
             key={item._id}
             id={item._id}
@@ -47,6 +47,7 @@ const TrendingProducts = () => {
             category={item.category}
             title={item.name}
             price={item.price}
+            index={index}
           />
         ))}
       </div>

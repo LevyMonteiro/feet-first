@@ -7,6 +7,7 @@ import {
 import { useAppDispatch } from '@/redux/hooks';
 import React from 'react';
 import { RxCross1, RxMinus, RxPlus } from 'react-icons/rx';
+import { delay, motion } from 'framer-motion';
 
 type PropsType = {
   id: string;
@@ -14,6 +15,19 @@ type PropsType = {
   title: string;
   price: number;
   quantity: number;
+  index: number;
+};
+
+const cartSlide = {
+  initial: { x: '100%' },
+  enter: (i: number) => ({
+    x: '0%',
+    transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1], delay: 0.05 * i },
+  }),
+  exit: (i: number) => ({
+    x: '100%',
+    transition: { duration: 0.8, ease: [0.76, 0, 0.24, 1], delay: 0.05 * i },
+  }),
 };
 
 const CartProduct: React.FC<PropsType> = ({
@@ -22,12 +36,21 @@ const CartProduct: React.FC<PropsType> = ({
   title,
   price,
   quantity,
+  index,
 }) => {
   const dispatch = useAppDispatch();
   const payLoad = { id, img, title, price, quantity };
 
   return (
-    <div className='flex justify-between items-center'>
+    <motion.div
+      custom={index}
+      variants={cartSlide}
+      animate='enter'
+      exit='exit'
+      initial='initial'
+      transition={{ duration: 1, ease: 'easeInOut' }}
+      className='flex justify-between items-center'
+    >
       <div className='flex items-center gap-4'>
         <img className='h-[80px]' src={img} alt={title} />
         <div className='space-y-2'>
@@ -57,7 +80,7 @@ const CartProduct: React.FC<PropsType> = ({
           onClick={() => dispatch(removeFromCart(id))}
         />
       </div>
-    </div>
+    </motion.div>
   );
 };
 
